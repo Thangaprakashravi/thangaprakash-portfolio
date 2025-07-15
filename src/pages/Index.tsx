@@ -1,12 +1,331 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Github, Linkedin, Mail, ExternalLink, Code, Database, Smartphone, Globe } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { toast } from "@/hooks/use-toast";
+import heroProfile from "@/assets/hero-profile.jpg";
 
 const Index = () => {
+  const skills = [
+    "Java", "Kotlin", "JavaScript", "HTML", "CSS", 
+    "ReactJS", "Spring", "SQL"
+  ];
+
+  const projects = [
+    {
+      title: "Tax Estimation App",
+      description: "A comprehensive mobile application for calculating various tax estimations with user-friendly interface and accurate calculations.",
+      technologies: ["Kotlin", "XML"],
+      icon: <Smartphone className="w-6 h-6" />,
+      codeSnippet: `class TaxCalculator {
+    fun calculateIncomeTax(income: Double): Double {
+        return when {
+            income <= 250000 -> 0.0
+            income <= 500000 -> (income - 250000) * 0.05
+            else -> 12500 + (income - 500000) * 0.2
+        }
+    }
+}`
+    },
+    {
+      title: "Car Rental System",
+      description: "Modern car rental application with real-time booking, Firebase backend, and intuitive Jetpack Compose UI.",
+      technologies: ["Kotlin", "Jetpack Compose", "Firebase", "SQLite"],
+      icon: <Database className="w-6 h-6" />,
+      codeSnippet: `@Composable
+fun CarListScreen(
+    cars: List<Car>,
+    onCarSelected: (Car) -> Unit
+) {
+    LazyColumn {
+        items(cars) { car ->
+            CarCard(
+                car = car,
+                onClick = { onCarSelected(car) }
+            )
+        }
+    }
+}`
+    },
+    {
+      title: "News Web Portal",
+      description: "Dynamic news website with real-time API integration, responsive design, and categorized news sections.",
+      technologies: ["ReactJS", "API"],
+      icon: <Globe className="w-6 h-6" />,
+      codeSnippet: `const NewsApp = () => {
+  const [news, setNews] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchNews()
+      .then(setNews)
+      .finally(() => setLoading(false));
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="news-container">
+      {loading ? <Loader /> : <NewsList news={news} />}
+    </div>
+  );
+};`
+    }
+  ];
+
+  const handleContactSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    toast({
+      title: "Message Sent!",
+      description: "Thank you for reaching out. I'll get back to you soon.",
+    });
+  };
+
+  return (
+    <div className="min-h-screen bg-background">
+      {/* Navigation */}
+      <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-sm border-b border-border z-50">
+        <div className="section-container py-4">
+          <div className="flex justify-between items-center">
+            <h1 className="text-xl font-bold text-primary">Thangapraksh</h1>
+            <div className="hidden md:flex space-x-8">
+              <a href="#home" className="smooth-transition hover:text-primary">Home</a>
+              <a href="#about" className="smooth-transition hover:text-primary">About</a>
+              <a href="#projects" className="smooth-transition hover:text-primary">Projects</a>
+              <a href="#contact" className="smooth-transition hover:text-primary">Contact</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section id="home" className="pt-20 pb-16 min-h-screen flex items-center">
+        <div className="section-container">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <div>
+                <h2 className="text-4xl md:text-6xl font-bold mb-4">
+                  Hello<span className="text-primary">.</span>
+                </h2>
+                <p className="text-xl md:text-2xl text-muted-foreground mb-2">
+                  I'm Thangapraksh
+                </p>
+                <h3 className="text-3xl md:text-5xl font-bold mb-6">
+                  Software Developer
+                </h3>
+              </div>
+              <div className="flex flex-wrap gap-4">
+                <Button className="hero-gradient text-white font-semibold px-8 py-3">
+                  Get a Project
+                </Button>
+                <Button variant="outline" className="px-8 py-3">
+                  My Resume
+                </Button>
+              </div>
+              <div className="skill-grid mt-8">
+                {skills.map((skill) => (
+                  <span key={skill} className="tech-badge">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="flex justify-center lg:justify-end">
+              <div className="relative">
+                <div className="w-80 h-80 rounded-full hero-gradient p-1">
+                  <img
+                    src={heroProfile}
+                    alt="Thangapraksh"
+                    className="w-full h-full rounded-full object-cover"
+                  />
+                </div>
+                <div className="absolute -top-4 -right-4 w-16 h-16 bg-primary/20 rounded-full animate-pulse"></div>
+                <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-accent/30 rounded-full animate-pulse delay-1000"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-16">
+        <div className="section-container">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <div className="flex items-center space-x-4 mb-6">
+                <Code className="w-8 h-8 text-primary" />
+                <h3 className="text-xl font-semibold">Software Development</h3>
+              </div>
+              <div className="flex items-center space-x-4 mb-6">
+                <Smartphone className="w-8 h-8 text-primary" />
+                <h3 className="text-xl font-semibold">Mobile Development</h3>
+              </div>
+              <div className="flex items-center space-x-4 mb-6">
+                <Globe className="w-8 h-8 text-primary" />
+                <h3 className="text-xl font-semibold">Web Development</h3>
+              </div>
+            </div>
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">About me</h2>
+              <p className="text-muted-foreground mb-8 leading-relaxed">
+                I started my software journey from mobile development. Through that, I learned to 
+                love the process of creating from scratch. Since then, I have been working on 
+                software development as it fulfills my love for learning and building things.
+              </p>
+              <div className="grid grid-cols-3 gap-8">
+                <div className="text-center">
+                  <h4 className="text-2xl md:text-3xl font-bold text-primary mb-2">15+</h4>
+                  <p className="text-sm text-muted-foreground">Completed Projects</p>
+                </div>
+                <div className="text-center">
+                  <h4 className="text-2xl md:text-3xl font-bold text-primary mb-2">98%</h4>
+                  <p className="text-sm text-muted-foreground">Client Satisfaction</p>
+                </div>
+                <div className="text-center">
+                  <h4 className="text-2xl md:text-3xl font-bold text-primary mb-2">2+</h4>
+                  <p className="text-sm text-muted-foreground">Years of Experience</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="py-16">
+        <div className="section-container">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+            Projects
+          </h2>
+          <div className="space-y-12">
+            {projects.map((project, index) => (
+              <Card key={project.title} className={`project-card ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+                <div className={`grid lg:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? 'lg:grid-cols-2' : ''}`}>
+                  <div className="space-y-6">
+                    <div className="flex items-center space-x-4">
+                      {project.icon}
+                      <h3 className="text-xl md:text-2xl font-bold">{project.title}</h3>
+                    </div>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.technologies.map((tech) => (
+                        <span key={tech} className="tech-badge">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="flex space-x-4">
+                      <Button className="hero-gradient text-white">
+                        View on GitHub
+                      </Button>
+                      <Button variant="outline">
+                        View Project <ExternalLink className="w-4 h-4 ml-2" />
+                      </Button>
+                    </div>
+                  </div>
+                  <div>
+                    <div className="code-block">
+                      <pre className="text-sm overflow-x-auto">
+                        <code>{project.codeSnippet}</code>
+                      </pre>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-16">
+        <div className="section-container">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Have a project?
+              </h2>
+              <h3 className="text-2xl md:text-3xl font-bold text-primary">
+                Let's talk!
+              </h3>
+            </div>
+            <div className="grid lg:grid-cols-2 gap-12">
+              <div className="space-y-6">
+                <div className="flex items-center space-x-4">
+                  <Mail className="w-6 h-6 text-primary" />
+                  <div>
+                    <h4 className="font-semibold">Email</h4>
+                    <p className="text-muted-foreground">thangapraksh@example.com</p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <Github className="w-6 h-6 text-primary" />
+                  <div>
+                    <h4 className="font-semibold">GitHub</h4>
+                    <p className="text-muted-foreground">github.com/thangapraksh</p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <Linkedin className="w-6 h-6 text-primary" />
+                  <div>
+                    <h4 className="font-semibold">LinkedIn</h4>
+                    <p className="text-muted-foreground">linkedin.com/in/thangapraksh</p>
+                  </div>
+                </div>
+              </div>
+              <form onSubmit={handleContactSubmit} className="space-y-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium mb-2">
+                    Name
+                  </label>
+                  <Input id="name" required />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium mb-2">
+                    Email
+                  </label>
+                  <Input id="email" type="email" required />
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium mb-2">
+                    Message
+                  </label>
+                  <Textarea id="message" rows={4} required />
+                </div>
+                <Button type="submit" className="w-full hero-gradient text-white font-semibold py-3">
+                  Send Message
+                </Button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-border py-8">
+        <div className="section-container">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div className="text-center md:text-left">
+              <h3 className="font-bold text-lg">Thangapraksh</h3>
+              <p className="text-sm text-muted-foreground">
+                Designed with love, all right reserved by Thangapraksh.
+              </p>
+            </div>
+            <div className="flex space-x-6">
+              <a href="#" className="text-muted-foreground hover:text-primary smooth-transition">
+                <Github className="w-5 h-5" />
+              </a>
+              <a href="#" className="text-muted-foreground hover:text-primary smooth-transition">
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a href="#" className="text-muted-foreground hover:text-primary smooth-transition">
+                <Mail className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
