@@ -1,8 +1,6 @@
 import { Github, Linkedin, Mail, ExternalLink, Code, Database, Smartphone, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
 import heroProfile from "@/assets/hero-profile.jpg";
 
@@ -18,6 +16,7 @@ const Index = () => {
       description: "A comprehensive mobile application for calculating various tax estimations with user-friendly interface and accurate calculations.",
       technologies: ["Kotlin", "XML"],
       icon: <Smartphone className="w-6 h-6" />,
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=500&h=300&fit=crop",
       codeSnippet: `class TaxCalculator {
     fun calculateIncomeTax(income: Double): Double {
         return when {
@@ -33,6 +32,7 @@ const Index = () => {
       description: "Modern car rental application with real-time booking, Firebase backend, and intuitive Jetpack Compose UI.",
       technologies: ["Kotlin", "Jetpack Compose", "Firebase", "SQLite"],
       icon: <Database className="w-6 h-6" />,
+      image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=500&h=300&fit=crop",
       codeSnippet: `@Composable
 fun CarListScreen(
     cars: List<Car>,
@@ -53,6 +53,7 @@ fun CarListScreen(
       description: "Dynamic news website with real-time API integration, responsive design, and categorized news sections.",
       technologies: ["ReactJS", "API"],
       icon: <Globe className="w-6 h-6" />,
+      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=500&h=300&fit=crop",
       codeSnippet: `const NewsApp = () => {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -72,13 +73,6 @@ fun CarListScreen(
     }
   ];
 
-  const handleContactSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
-  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -90,6 +84,7 @@ fun CarListScreen(
             <div className="hidden md:flex space-x-8">
               <a href="#home" className="smooth-transition hover:text-primary">Home</a>
               <a href="#about" className="smooth-transition hover:text-primary">About</a>
+              <a href="#skills" className="smooth-transition hover:text-primary">Skills</a>
               <a href="#projects" className="smooth-transition hover:text-primary">Projects</a>
               <a href="#contact" className="smooth-transition hover:text-primary">Contact</a>
             </div>
@@ -190,6 +185,22 @@ fun CarListScreen(
         </div>
       </section>
 
+      {/* Skills Section */}
+      <section id="skills" className="py-16">
+        <div className="section-container">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+            Skills
+          </h2>
+          <div className="skill-grid max-w-4xl mx-auto">
+            {skills.map((skill) => (
+              <span key={skill} className="tech-badge text-center">
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Projects Section */}
       <section id="projects" className="py-16">
         <div className="section-container">
@@ -224,12 +235,12 @@ fun CarListScreen(
                       </Button>
                     </div>
                   </div>
-                  <div>
-                    <div className="code-block">
-                      <pre className="text-sm overflow-x-auto">
-                        <code>{project.codeSnippet}</code>
-                      </pre>
-                    </div>
+                  <div className="rounded-lg overflow-hidden">
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-64 object-cover hover:scale-105 smooth-transition"
+                    />
                   </div>
                 </div>
               </Card>
@@ -250,53 +261,30 @@ fun CarListScreen(
                 Let's talk!
               </h3>
             </div>
-            <div className="grid lg:grid-cols-2 gap-12">
-              <div className="space-y-6">
-                <div className="flex items-center space-x-4">
+            <div className="max-w-2xl mx-auto text-center">
+              <div className="space-y-8">
+                <div className="flex items-center justify-center space-x-4">
                   <Mail className="w-6 h-6 text-primary" />
                   <div>
-                    <h4 className="font-semibold">Email</h4>
+                    <h4 className="font-semibold text-lg">Email</h4>
                     <p className="text-muted-foreground">thangapraksh@example.com</p>
                   </div>
                 </div>
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center justify-center space-x-4">
                   <Github className="w-6 h-6 text-primary" />
                   <div>
-                    <h4 className="font-semibold">GitHub</h4>
+                    <h4 className="font-semibold text-lg">GitHub</h4>
                     <p className="text-muted-foreground">github.com/thangapraksh</p>
                   </div>
                 </div>
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center justify-center space-x-4">
                   <Linkedin className="w-6 h-6 text-primary" />
                   <div>
-                    <h4 className="font-semibold">LinkedIn</h4>
+                    <h4 className="font-semibold text-lg">LinkedIn</h4>
                     <p className="text-muted-foreground">linkedin.com/in/thangapraksh</p>
                   </div>
                 </div>
               </div>
-              <form onSubmit={handleContactSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2">
-                    Name
-                  </label>
-                  <Input id="name" required />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">
-                    Email
-                  </label>
-                  <Input id="email" type="email" required />
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">
-                    Message
-                  </label>
-                  <Textarea id="message" rows={4} required />
-                </div>
-                <Button type="submit" className="w-full hero-gradient text-white font-semibold py-3">
-                  Send Message
-                </Button>
-              </form>
             </div>
           </div>
         </div>
