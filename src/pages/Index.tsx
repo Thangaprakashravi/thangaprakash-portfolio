@@ -263,27 +263,40 @@ fun CarListScreen(
             </div>
             <div className="max-w-2xl mx-auto text-center">
               <div className="space-y-8">
-                <div className="flex items-center justify-center space-x-4">
-                  <Mail className="w-6 h-6 text-primary" />
+                <a 
+                  href="mailto:thangapraksh@example.com" 
+                  className="flex items-center justify-center space-x-4 smooth-transition hover:text-primary group"
+                >
+                  <Mail className="w-6 h-6 text-primary group-hover:scale-110 smooth-transition" />
                   <div>
                     <h4 className="font-semibold text-lg">Email</h4>
                     <p className="text-muted-foreground">thangapraksh@example.com</p>
                   </div>
-                </div>
-                <div className="flex items-center justify-center space-x-4">
-                  <Github className="w-6 h-6 text-primary" />
+                </a>
+                <a 
+                  href="https://github.com/thangapraksh" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center space-x-4 smooth-transition hover:text-primary group"
+                >
+                  <Github className="w-6 h-6 text-primary group-hover:scale-110 smooth-transition" />
                   <div>
                     <h4 className="font-semibold text-lg">GitHub</h4>
                     <p className="text-muted-foreground">github.com/thangapraksh</p>
                   </div>
-                </div>
-                <div className="flex items-center justify-center space-x-4">
-                  <Linkedin className="w-6 h-6 text-primary" />
+                </a>
+                <a 
+                  href="https://linkedin.com/in/thangapraksh" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center space-x-4 smooth-transition hover:text-primary group"
+                >
+                  <Linkedin className="w-6 h-6 text-primary group-hover:scale-110 smooth-transition" />
                   <div>
                     <h4 className="font-semibold text-lg">LinkedIn</h4>
                     <p className="text-muted-foreground">linkedin.com/in/thangapraksh</p>
                   </div>
-                </div>
+                </a>
               </div>
             </div>
           </div>
