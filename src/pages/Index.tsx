@@ -109,7 +109,7 @@ fun CarListScreen(
             <div className="flex justify-center lg:justify-end">
               <div className="relative">
                 <div className="w-80 h-80 rounded-full hero-gradient p-1">
-                  <img src={heroProfile} alt="Thangapraksh" className="w-full h-full rounded-full object-cover" />
+                  <img src="/lovable-uploads/1251e625-4631-4e55-b7ab-d5a793bca778.png" alt="Thangapraksh" className="w-full h-full rounded-full object-cover" />
                 </div>
                 <div className="absolute -top-4 -right-4 w-16 h-16 bg-primary/20 rounded-full animate-pulse"></div>
                 <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-accent/30 rounded-full animate-pulse delay-1000"></div>
