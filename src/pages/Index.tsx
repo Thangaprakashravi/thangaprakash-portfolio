@@ -98,13 +98,6 @@ fun CarListScreen(
                 
                 
               </div>
-              <div className="skill-grid mt-8">
-                {skills.map(skill => (
-                  <span key={skill} className="tech-badge text-center">
-                    {skill}
-                  </span>
-                ))}
-              </div>
             </div>
             <div className="flex justify-center lg:justify-end">
               <div className="relative">
@@ -228,27 +221,15 @@ fun CarListScreen(
               </h3>
             </div>
             <div className="max-w-2xl mx-auto text-center">
-              <div className="space-y-8">
-                <a href="mailto:thangaprakashravichandran2@gmail.com" className="flex items-center justify-center space-x-4 smooth-transition hover:text-primary group">
-                  <Mail className="w-6 h-6 text-primary group-hover:scale-110 smooth-transition" />
-                  <div>
-                    <span className="text-lg font-medium">thangaprakashravichandran2@gmail.com</span>
-                    <p className="text-sm text-muted-foreground">Send me an email</p>
-                  </div>
+              <div className="flex justify-center space-x-8">
+                <a href="mailto:thangaprakashravichandran2@gmail.com" className="smooth-transition hover:text-primary group">
+                  <Mail className="w-8 h-8 text-primary group-hover:scale-110 smooth-transition" />
                 </a>
-                <a href="https://github.com/Thangaprakashravi" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center space-x-4 smooth-transition hover:text-primary group">
-                  <Github className="w-6 h-6 text-primary group-hover:scale-110 smooth-transition" />
-                  <div>
-                    <span className="text-lg font-medium">@Thangaprakashravi</span>
-                    <p className="text-sm text-muted-foreground">Follow me on GitHub</p>
-                  </div>
+                <a href="https://github.com/Thangaprakashravi" target="_blank" rel="noopener noreferrer" className="smooth-transition hover:text-primary group">
+                  <Github className="w-8 h-8 text-primary group-hover:scale-110 smooth-transition" />
                 </a>
-                <a href="https://www.linkedin.com/in/thangaprakash-r2003/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center space-x-4 smooth-transition hover:text-primary group">
-                  <Linkedin className="w-6 h-6 text-primary group-hover:scale-110 smooth-transition" />
-                  <div>
-                    <span className="text-lg font-medium">thangaprakash-r2003</span>
-                    <p className="text-sm text-muted-foreground">Connect on LinkedIn</p>
-                  </div>
+                <a href="https://www.linkedin.com/in/thangaprakash-r2003/" target="_blank" rel="noopener noreferrer" className="smooth-transition hover:text-primary group">
+                  <Linkedin className="w-8 h-8 text-primary group-hover:scale-110 smooth-transition" />
                 </a>
               </div>
             </div>
