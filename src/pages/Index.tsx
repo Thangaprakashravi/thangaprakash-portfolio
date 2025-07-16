@@ -229,25 +229,25 @@ fun CarListScreen(
             </div>
             <div className="max-w-2xl mx-auto text-center">
               <div className="space-y-8">
-                <a href="mailto:thangapraksh@example.com" className="flex items-center justify-center space-x-4 smooth-transition hover:text-primary group">
+                <a href="mailto:thangaprakashravichandran2@gmail.com" className="flex items-center justify-center space-x-4 smooth-transition hover:text-primary group">
                   <Mail className="w-6 h-6 text-primary group-hover:scale-110 smooth-transition" />
                   <div>
-                    
-                    
+                    <span className="text-lg font-medium">thangaprakashravichandran2@gmail.com</span>
+                    <p className="text-sm text-muted-foreground">Send me an email</p>
                   </div>
                 </a>
-                <a href="https://github.com/thangapraksh" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center space-x-4 smooth-transition hover:text-primary group">
+                <a href="https://github.com/Thangaprakashravi" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center space-x-4 smooth-transition hover:text-primary group">
                   <Github className="w-6 h-6 text-primary group-hover:scale-110 smooth-transition" />
                   <div>
-                    
-                    
+                    <span className="text-lg font-medium">@Thangaprakashravi</span>
+                    <p className="text-sm text-muted-foreground">Follow me on GitHub</p>
                   </div>
                 </a>
-                <a href="https://linkedin.com/in/thangapraksh" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center space-x-4 smooth-transition hover:text-primary group">
+                <a href="https://www.linkedin.com/in/thangaprakash-r2003/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center space-x-4 smooth-transition hover:text-primary group">
                   <Linkedin className="w-6 h-6 text-primary group-hover:scale-110 smooth-transition" />
                   <div>
-                    
-                    
+                    <span className="text-lg font-medium">thangaprakash-r2003</span>
+                    <p className="text-sm text-muted-foreground">Connect on LinkedIn</p>
                   </div>
                 </a>
               </div>
