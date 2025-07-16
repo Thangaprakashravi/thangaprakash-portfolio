@@ -99,7 +99,11 @@ fun CarListScreen(
                 
               </div>
               <div className="skill-grid mt-8">
-                {skills.map(skill => {})}
+                {skills.map(skill => (
+                  <span key={skill} className="tech-badge text-center">
+                    {skill}
+                  </span>
+                ))}
               </div>
             </div>
             <div className="flex justify-center lg:justify-end">
