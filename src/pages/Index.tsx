@@ -162,9 +162,11 @@ fun CarListScreen(
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">About me</h2>
               <p className="text-muted-foreground mb-8 leading-relaxed">
-                I started my software journey from mobile development. Through that, I learned to 
-                love the process of creating from scratch. Since then, I have been working on 
-                software development as it fulfills my love for learning and building things.
+                I'm Thangaprakash — a Full Stack Mobile and Web Application 
+                Developer. I build smooth, user-friendly apps that solve 
+                real-world problems. With experience in developing multiple 
+                mobile projects, I focus on creating clean, responsive, and 
+                efficient solutions that deliver a great user experience.
               </p>
               <div className="grid grid-cols-3 gap-8">
                 <div className="text-center">
